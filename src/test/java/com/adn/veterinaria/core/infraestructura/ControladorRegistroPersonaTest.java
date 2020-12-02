@@ -72,7 +72,7 @@ class ControladorRegistroPersonaTest {
 	void modificarResponsable() throws Exception {
 
 		ComandoPersona comandoVeterinario = new PersonaTestDataBuilder()
-				.conIdentificacion("71665023")
+				.conIdentificacion("43032118")
 				.conTelefonoContacto("3007855772")
 				.conApellido2("Giraldo")
 				.buildComando();
