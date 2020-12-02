@@ -6,11 +6,6 @@ import lombok.Setter;
 @Getter
 public class TipoCita {
 
-	private static final String EL_NOMBRE_ES_UN_DATO_OBLIGATORIO = "El nombre de tipo es un dato obligatorio";
-	private static final String LA_TARIFA_BASICA_ES_UN_DATO_OBLIGATORIO = "La tarifa básica es un dato obligatorio";
-	private static final String LA_DESCRIPCION_ES_UN_DATO_OBLIGATORIO = "La descripción breve es un dato obligatorio";
-	private static final String LA_TARIFA_NO_PUEDE_SER_NEGATIVA = "La tarifa no puede ser un valor negativo";
-
 	@Setter
 	private Long idTipoCita;
 	private String nombre;
@@ -18,10 +13,10 @@ public class TipoCita {
 	private String descripcionBreve;
 
 	public TipoCita(Long idTipoCita, String nombre, Double tarifaBasica, String descripcionBreve) {
-		ValidadorArgumento.validarObligatorio(nombre, EL_NOMBRE_ES_UN_DATO_OBLIGATORIO);
-		ValidadorArgumento.validarObligatorio(tarifaBasica, LA_TARIFA_BASICA_ES_UN_DATO_OBLIGATORIO);
-		ValidadorArgumento.validarValorNegativo(tarifaBasica, LA_TARIFA_NO_PUEDE_SER_NEGATIVA);
-		ValidadorArgumento.validarObligatorio(descripcionBreve, LA_DESCRIPCION_ES_UN_DATO_OBLIGATORIO);
+		ValidadorArgumento.validarObligatorio(nombre, "El nombre");
+		ValidadorArgumento.validarObligatorio(tarifaBasica, "La tarifa basica");
+		ValidadorArgumento.validarValorNegativo(tarifaBasica, "La tarifa basica");
+		ValidadorArgumento.validarObligatorio(descripcionBreve, "La descripcion");
 
 		this.idTipoCita = idTipoCita;
 		this.nombre = nombre;

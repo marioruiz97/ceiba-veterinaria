@@ -32,20 +32,29 @@ class ControladorRegistroTipoCitaTest {
 
 		ComandoTipoCita comandoTipoCita = new TipoCitaTestDataBuilder().buildComando();
 
-		mvc.perform(MockMvcRequestBuilders.post("/operador/tipo-citas")
-				.content(objectMapper.writeValueAsString(comandoTipoCita)).contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isCreated());
+		mvc.perform(MockMvcRequestBuilders
+				.post("/operador/tipo-citas")
+				.content(objectMapper.writeValueAsString(comandoTipoCita))
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isCreated());
 	}
 
 	@Test
 	void modificarTipoCita() throws Exception {
 
-		ComandoTipoCita comandoTipoCita = new TipoCitaTestDataBuilder().conNombre("Nombre Cambiado")
-				.conTarifaBasica(15500D).conDescripcionBreve("Descripcion cambiada").buildComando();
+		ComandoTipoCita comandoTipoCita = new TipoCitaTestDataBuilder()
+				.conNombre("Nombre Cambiado")
+				.conTarifaBasica(15500D)
+				.conDescripcionBreve("Descripcion cambiada")
+				.buildComando();
 
-		mvc.perform(MockMvcRequestBuilders.patch("/operador/tipo-citas/{id}", 1L)
-				.content(objectMapper.writeValueAsString(comandoTipoCita)).contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		mvc.perform(MockMvcRequestBuilders
+				.patch("/operador/tipo-citas/{id}", 1L)
+				.content(objectMapper.writeValueAsString(comandoTipoCita))
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
 	}
 
 	@Test
@@ -53,8 +62,10 @@ class ControladorRegistroTipoCitaTest {
 
 		Long idTipo = 1L;
 
-		mvc.perform(MockMvcRequestBuilders.delete("/operador/tipo-citas/{id}", idTipo)
-				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
+		mvc.perform(MockMvcRequestBuilders
+				.delete("/operador/tipo-citas/{id}", idTipo)
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isNoContent());
 	}
 

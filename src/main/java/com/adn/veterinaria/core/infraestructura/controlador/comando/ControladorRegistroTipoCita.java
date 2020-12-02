@@ -30,15 +30,14 @@ public class ControladorRegistroTipoCita {
 	public ResponseEntity<TipoCita> crear(@RequestBody ComandoTipoCita comandoTipoCita) {
 		// asegurarse que se ejecutará una creación
 		comandoTipoCita.setIdTipoCita(null);
-		TipoCita result = manejadorTipoCita.crear(comandoTipoCita);
-		return new ResponseEntity<>(result, HttpStatus.CREATED);
+		TipoCita tipoCita = manejadorTipoCita.crear(comandoTipoCita);
+		return new ResponseEntity<>(tipoCita, HttpStatus.CREATED);
 	}
 
 	@PatchMapping(path = "/{id}")
-	public ResponseEntity<TipoCita> modificar(@RequestBody ComandoTipoCita comandoTipoCita,
-			@PathVariable("id") Long idTipo) {
-		TipoCita result = manejadorTipoCita.modificar(comandoTipoCita, idTipo);
-		return new ResponseEntity<>(result, HttpStatus.OK);
+	public ResponseEntity<TipoCita> modificar(@RequestBody ComandoTipoCita comandoTipoCita, @PathVariable("id") Long idTipo) {
+		TipoCita tipoCita = manejadorTipoCita.modificar(comandoTipoCita, idTipo);
+		return new ResponseEntity<>(tipoCita, HttpStatus.OK);
 	}
 
 	@DeleteMapping(path = "/{id}")

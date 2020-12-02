@@ -3,7 +3,7 @@ package com.adn.veterinaria.core.infraestructura.persistencia.convertidor;
 import com.adn.veterinaria.core.dominio.modelo.TipoCita;
 import com.adn.veterinaria.core.infraestructura.persistencia.entidad.EntidadTipoCita;
 
-public class ConvertidorTipoCita {
+public final class ConvertidorTipoCita {
 
 	private ConvertidorTipoCita() {
 	}
