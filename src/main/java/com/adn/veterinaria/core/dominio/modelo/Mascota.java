@@ -23,7 +23,7 @@ public class Mascota {
 		validarDatosDeEntrada(nombre, fechaNacimiento, peso);
 		this.idMascota = idMascota;
 		this.nombre = nombre;
-		this.fechaNacimiento = (Date) fechaNacimiento.clone();
+		this.fechaNacimiento = new Date(fechaNacimiento.getTime());
 		this.peso = peso;
 		this.rasgosCaracteristicos = rasgosCaracteristicos;
 	}

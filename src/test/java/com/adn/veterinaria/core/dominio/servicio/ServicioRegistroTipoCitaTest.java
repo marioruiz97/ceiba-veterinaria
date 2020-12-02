@@ -40,6 +40,24 @@ class ServicioRegistroTipoCitaTest {
 		verify(repositorio).eliminarPorId(idTipo);
 
 	}
+	
+	@Test
+	void eliminarTipoCitaConNull() throws Exception {
+
+		// arrange		
+		Long idTipo = 0L;
+
+		RepositorioRegistroTipoCita repositorio = mock(RepositorioRegistroTipoCita.class);
+
+		when(repositorio.obtenerPorId(idTipo)).thenReturn(null);
+
+		ServicioRegistroTipoCita servicio = new ServicioRegistroTipoCita(repositorio);
+
+		// act - assert
+		servicio.eliminarPorId(idTipo);
+		verify(repositorio).eliminarPorId(idTipo);
+
+	}
 
 	@Test
 	void verificarEliminarTipoCitaException() throws Exception {

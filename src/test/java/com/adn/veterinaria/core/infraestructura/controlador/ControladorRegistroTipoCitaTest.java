@@ -1,4 +1,4 @@
-package com.adn.veterinaria.core.infraestructura;
+package com.adn.veterinaria.core.infraestructura.controlador;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
