@@ -2,6 +2,7 @@ package com.adn.veterinaria.core.infraestructura;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.adn.veterinaria.core.aplicacion.comando.ComandoMascota;
+import com.adn.veterinaria.core.aplicacion.comando.ComandoPersona;
 import com.adn.veterinaria.core.testdatabuilder.MascotaTestDataBuilder;
+import com.adn.veterinaria.core.testdatabuilder.PersonaTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(SpringExtension.class)
@@ -26,6 +29,22 @@ class ControladorRegistroMascotaTest {
 
 	@Autowired
 	private ObjectMapper objectMapper;
+	
+	@Test
+	@BeforeEach
+	void before() throws Exception {
+		long randomId = Math.round((Math.random()*100));
+		ComandoPersona comandoResponsable = new PersonaTestDataBuilder()
+				.conIdentificacion("1017231" + randomId)
+				.buildComando();
+
+		mvc.perform(MockMvcRequestBuilders
+				.post("/operador/responsables")
+				.content(objectMapper.writeValueAsString(comandoResponsable))
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isCreated());
+	}
 
 	@Test
 	void crearMascota() throws Exception {
