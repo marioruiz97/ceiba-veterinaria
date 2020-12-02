@@ -4,8 +4,8 @@ public class ExcepcionValorNegativo extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public ExcepcionValorNegativo(String message) {
-		super(message);
+	public ExcepcionValorNegativo(String mensaje) {
+		super(mensaje);
 	}
 
 }

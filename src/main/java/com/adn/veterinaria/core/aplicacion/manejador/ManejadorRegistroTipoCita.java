@@ -23,13 +23,13 @@ public class ManejadorRegistroTipoCita {
 
 	@Transactional
 	public TipoCita crear(ComandoTipoCita comandoTipoCita) {
-		TipoCita tipoCita = fabricaTipoCita.crearModelo(comandoTipoCita);
+		TipoCita tipoCita = fabricaTipoCita.crear(comandoTipoCita);
 		return servicioTipoCita.crearOModificar(tipoCita);
 	}
 
 	@Transactional
 	public TipoCita modificar(ComandoTipoCita comandoTipoCita, Long idTipo) {
-		TipoCita tipoCita = fabricaTipoCita.crearModelo(comandoTipoCita);
+		TipoCita tipoCita = fabricaTipoCita.crear(comandoTipoCita);
 		tipoCita.setIdTipoCita(idTipo);
 		return servicioTipoCita.crearOModificar(tipoCita);
 	}

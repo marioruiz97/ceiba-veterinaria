@@ -1,5 +1,7 @@
 package com.adn.veterinaria.core.dominio.modelo;
 
+import com.adn.veterinaria.core.dominio.modelo.validador.ValidadorArgumento;
+
 import lombok.Getter;
 import lombok.Setter;
 

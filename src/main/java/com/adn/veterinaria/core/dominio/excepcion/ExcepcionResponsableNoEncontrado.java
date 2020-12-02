@@ -4,7 +4,7 @@ public class ExcepcionResponsableNoEncontrado extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public ExcepcionResponsableNoEncontrado(String message) {
-		super(message);
+	public ExcepcionResponsableNoEncontrado(String mensaje) {
+		super(mensaje);
 	}
 }

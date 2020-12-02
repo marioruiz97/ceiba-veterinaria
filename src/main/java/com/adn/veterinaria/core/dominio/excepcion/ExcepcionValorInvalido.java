@@ -1,11 +1,10 @@
 package com.adn.veterinaria.core.dominio.excepcion;
 
-public class ExcepcionValorObligatorio extends RuntimeException {
+public class ExcepcionValorInvalido extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public ExcepcionValorObligatorio(String mensaje) {
+	public ExcepcionValorInvalido(String mensaje) {
 		super(mensaje);
 	}
-
 }
