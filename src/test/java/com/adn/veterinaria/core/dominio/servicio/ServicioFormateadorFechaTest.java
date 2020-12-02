@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import org.junit.jupiter.api.Test;
@@ -29,15 +30,15 @@ class ServicioFormateadorFechaTest {
 	@Test
 	void fechaLocalDateADate() throws Exception {
 		// Arrange
-		Date fechaEsperada = new Date();
-		LocalDate fechaAFormatear = LocalDate.ofInstant(fechaEsperada.toInstant(), ZoneId.systemDefault());
-
+		String fechaEntrada = "03112020";
+		LocalDate fechaAFormatear = LocalDate.parse(fechaEntrada, DateTimeFormatter.ofPattern("ddMMyyyy"));
+		
 		// Act
 		Date fechaFormateada = ServicioFormeateadorFecha.fechaLocalDateADate(fechaAFormatear);
 
 		// Assert
 		assertThat(fechaFormateada.toInstant().atZone(ZoneId.systemDefault()).toLocalDate())
-				.isEqualTo(fechaEsperada.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+				.isEqualTo(fechaAFormatear);
 	}
 
 	@Test
