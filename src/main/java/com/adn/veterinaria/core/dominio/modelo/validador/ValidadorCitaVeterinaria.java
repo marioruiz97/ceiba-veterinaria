@@ -52,7 +52,7 @@ public final class ValidadorCitaVeterinaria {
 	}
 
 	public void validarReglaHorario(LocalDateTime fechaCita) {
-		if(validarDia(fechaCita.getDayOfWeek()) && validarHora(fechaCita.toLocalTime()))
+		if(!(validarDia(fechaCita.getDayOfWeek()) && validarHora(fechaCita.toLocalTime())))
 			throw new ExcepcionAccionNoPermitida(FECHA_SELECCIONADA_NO_VALIDA);
 	}
 

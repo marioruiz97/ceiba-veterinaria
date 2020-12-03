@@ -21,6 +21,11 @@ public class CitaVeterinaria {
 	private TipoCita tipoCita;
 	private Double valorFinal;
 
+	public static CitaVeterinaria crear(Date fechaCita, Veterinario medicoVeterinario, Mascota mascota,
+			TipoCita tipoCita) {
+		return new CitaVeterinaria(null, fechaCita, medicoVeterinario, mascota, tipoCita);
+	}
+
 	public CitaVeterinaria(Long codigoCita, Date fechaCita, Veterinario medicoVeterinario, Mascota mascota,
 			TipoCita tipoCita) {
 
@@ -35,15 +40,15 @@ public class CitaVeterinaria {
 		ValidadorArgumento.validarObligatorio(medicoVeterinario, "El medico veterinario");
 		ValidadorArgumento.validarObligatorio(mascota, "La mascota");
 
+		this.fechaCita = new Date(fechaCita.getTime());
+		this.tipoCita = tipoCita;
 		// calculo precio final de la cita
 		Double tarifaFinal = calcularValorFinal();
 		ValidadorArgumento.validarValorNegativo(tarifaFinal, "El valor final a pagar");
 
 		this.codigoCita = codigoCita;
-		this.fechaCita = new Date(fechaCita.getTime());
 		this.medicoVeterinario = medicoVeterinario;
 		this.mascota = mascota;
-		this.tipoCita = tipoCita;
 		this.valorFinal = tarifaFinal;
 	}
 
