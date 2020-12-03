@@ -25,4 +25,8 @@ public final class ServicioFormeateadorFecha {
 	public static Date fechaLocalDateTimeADate(LocalDateTime fecha) {
 		return Date.from(fecha.atZone(getDefaultZone()).toInstant());
 	}
+
+	public static LocalDateTime fechaDateALocalDateTime(Date fechaCita) {
+		return fechaCita.toInstant().atZone(getDefaultZone()).toLocalDateTime();
+	}
 }
