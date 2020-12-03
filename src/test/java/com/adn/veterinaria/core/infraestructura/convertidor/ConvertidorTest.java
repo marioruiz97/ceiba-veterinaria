@@ -7,12 +7,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.adn.veterinaria.core.dominio.modelo.CitaVeterinaria;
 import com.adn.veterinaria.core.dominio.modelo.Mascota;
 import com.adn.veterinaria.core.dominio.modelo.ResponsableMascota;
 import com.adn.veterinaria.core.dominio.modelo.Veterinario;
+import com.adn.veterinaria.core.infraestructura.persistencia.convertidor.ConvertidorCitaVeterinaria;
 import com.adn.veterinaria.core.infraestructura.persistencia.convertidor.ConvertidorMascota;
 import com.adn.veterinaria.core.infraestructura.persistencia.convertidor.ConvertidorResponsableMascota;
 import com.adn.veterinaria.core.infraestructura.persistencia.convertidor.ConvertidorVeterinario;
+import com.adn.veterinaria.core.infraestructura.persistencia.entidad.EntidadCitaVeterinaria;
 import com.adn.veterinaria.core.infraestructura.persistencia.entidad.EntidadMascota;
 import com.adn.veterinaria.core.infraestructura.persistencia.entidad.EntidadResponsableMascota;
 import com.adn.veterinaria.core.infraestructura.persistencia.entidad.EntidadVeterinario;
@@ -49,6 +52,16 @@ class ConvertidorTest {
 		ResponsableMascota responsable = ConvertidorResponsableMascota.convertirADominio(responsableEntidad);
 		// Assert
 		assertThat(responsable).isNull();
+	}
+
+	@Test
+	void convertidorCitaVeterinariaTest() {
+		// Arrange
+		EntidadCitaVeterinaria citaEntidad = null;
+		// Act
+		CitaVeterinaria citaVeterinaria = ConvertidorCitaVeterinaria.convertirADominio(citaEntidad);
+		// Assert
+		assertThat(citaVeterinaria).isNull();
 	}
 
 }

@@ -60,7 +60,7 @@ class ControladorRegistroTipoCitaTest {
 	@Test
 	void eliminarTipoCita() throws Exception {
 
-		Long idTipo = 1L;
+		Long idTipo = 2L;
 
 		mvc.perform(MockMvcRequestBuilders
 				.delete("/operador/tipo-citas/{id}", idTipo)
