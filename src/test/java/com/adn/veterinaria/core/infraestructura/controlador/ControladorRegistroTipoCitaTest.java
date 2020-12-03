@@ -68,5 +68,15 @@ class ControladorRegistroTipoCitaTest {
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isNoContent());
 	}
+	
+	@Test
+	void eliminarTipoCitaNoExistente() throws Exception {
+		Long idTipo = 0L;
+		mvc.perform(MockMvcRequestBuilders
+				.delete("/operador/tipo-citas/{id}", idTipo)
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isNoContent());
+	}
 
 }

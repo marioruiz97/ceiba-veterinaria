@@ -12,11 +12,11 @@ import com.adn.veterinaria.core.dominio.servicio.ServicioFormeateadorFecha;
 
 public final class ValidadorArgumento {
 
-	public static final String DATO_OBLIGATORIO = "%s es un dato obligatorio";
-	public static final String DATO_NO_PUEDE_SER_NEGATIVO = "%s no puede ser un valor negativo";
-	public static final String FECHA_DEBE_SER_PASADO = "La fecha debe estar en el pasado";
-	public static final String FECHA_DEBE_SER_FUTURO = "La fecha debe estar en el futuro";
-	public static final String FORMATO_TELEFONO_INVALIDO = "Ingrese un teléfono móvil colombiano (Ej: 3015465076)";
+	private static final String DATO_OBLIGATORIO = "%s es un dato obligatorio";
+	private static final String DATO_NO_PUEDE_SER_NEGATIVO = "%s no puede ser un valor negativo";
+	private static final String FECHA_DEBE_SER_PASADO = "La fecha debe estar en el pasado";
+	private static final String FECHA_DEBE_SER_FUTURO = "La fecha debe estar en el futuro";
+	private static final String FORMATO_TELEFONO_INVALIDO = "Ingrese un teléfono móvil colombiano (Ej: 3015465076)";
 
 	private ValidadorArgumento() {
 	}

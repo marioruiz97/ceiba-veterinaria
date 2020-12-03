@@ -12,11 +12,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.adn.veterinaria.core.dominio.excepcion.ExcepcionFecha;
 import com.adn.veterinaria.core.dominio.excepcion.ExcepcionValorNegativo;
-import com.adn.veterinaria.core.dominio.modelo.validador.ValidadorArgumento;
 import com.adn.veterinaria.core.testdatabuilder.MascotaTestDataBuilder;
 
 @SpringBootTest
 class MascotaTest {
+	
+	private static final String FECHA_DEBE_SER_PASADO = "La fecha debe estar en el pasado";
 
 	@Test
 	void crearMascotaValida() {
@@ -40,7 +41,7 @@ class MascotaTest {
 		MascotaTestDataBuilder mascotaDataBuilder = new MascotaTestDataBuilder().conFechaNacimiento(fechaNacimiento);
 
 		// Act - Assert
-		assertThrows(ExcepcionFecha.class, () -> mascotaDataBuilder.build(), ValidadorArgumento.FECHA_DEBE_SER_PASADO);
+		assertThrows(ExcepcionFecha.class, () -> mascotaDataBuilder.build(), FECHA_DEBE_SER_PASADO);
 
 	}
 
