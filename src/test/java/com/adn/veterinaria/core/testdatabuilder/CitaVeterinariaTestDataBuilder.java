@@ -56,7 +56,7 @@ public class CitaVeterinariaTestDataBuilder {
 	}
 
 	public ComandoCitaVeterinaria buildComando() {
-		return new ComandoCitaVeterinaria(ID, this.fechaCita, this.idVeterinario, this.idMascota, this.idTipoCita);
+		return new ComandoCitaVeterinaria(null, this.fechaCita, this.idVeterinario, this.idMascota, this.idTipoCita);
 	}
 
 }
