@@ -8,8 +8,15 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.adn.veterinaria.core.dominio.excepcion.ExcepcionAccionNoPermitida;
+import com.adn.veterinaria.core.dominio.excepcion.ExcepcionDuplicidad;
+import com.adn.veterinaria.core.dominio.excepcion.ExcepcionFecha;
 import com.adn.veterinaria.core.dominio.excepcion.ExcepcionNoSePudoBorrarTipoCita;
+import com.adn.veterinaria.core.dominio.excepcion.ExcepcionRecursoNoEncontrado;
 import com.adn.veterinaria.core.dominio.excepcion.ExcepcionResponsableNoEncontrado;
+import com.adn.veterinaria.core.dominio.excepcion.ExcepcionValorInvalido;
+import com.adn.veterinaria.core.dominio.excepcion.ExcepcionValorNegativo;
+import com.adn.veterinaria.core.dominio.excepcion.ExcepcionValorObligatorio;
 
 @ControllerAdvice
 public class ManejadorError extends ResponseEntityExceptionHandler {
@@ -19,7 +26,14 @@ public class ManejadorError extends ResponseEntityExceptionHandler {
 
 	public ManejadorError() {
 		CODIGOS_ESTADO.put(ExcepcionResponsableNoEncontrado.class.getSimpleName(), HttpStatus.NOT_FOUND.value());
+		CODIGOS_ESTADO.put(ExcepcionRecursoNoEncontrado.class.getSimpleName(), HttpStatus.NOT_FOUND.value());
 		CODIGOS_ESTADO.put(ExcepcionNoSePudoBorrarTipoCita.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+		CODIGOS_ESTADO.put(ExcepcionValorInvalido.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+		CODIGOS_ESTADO.put(ExcepcionValorNegativo.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+		CODIGOS_ESTADO.put(ExcepcionValorObligatorio.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+		CODIGOS_ESTADO.put(ExcepcionAccionNoPermitida.class.getSimpleName(), HttpStatus.NOT_ACCEPTABLE.value());
+		CODIGOS_ESTADO.put(ExcepcionDuplicidad.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+		CODIGOS_ESTADO.put(ExcepcionFecha.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
 	}
 
 	@ExceptionHandler(Exception.class)
