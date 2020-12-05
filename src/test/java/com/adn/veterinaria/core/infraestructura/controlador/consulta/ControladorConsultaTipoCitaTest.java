@@ -3,7 +3,6 @@ package com.adn.veterinaria.core.infraestructura.controlador.consulta;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,6 @@ class ControladorConsultaTipoCitaTest {
 	private ObjectMapper objectMapper;
 
 	@Test
-	@BeforeEach
 	void ConsultaRegistrosTest() throws Exception {
 
 		ComandoTipoCita comandoTipoCita = new TipoCitaTestDataBuilder()
@@ -57,6 +55,19 @@ class ControladorConsultaTipoCitaTest {
 
 	@Test
 	void consultarTipoPorId() throws Exception {
+		
+		ComandoTipoCita comandoTipoCita = new TipoCitaTestDataBuilder()
+				.conNombre("CITA EJEMPLO 2")
+				.conDescripcionBreve("otro ejemplo")
+				.buildComando();
+
+		mvc.perform(MockMvcRequestBuilders
+				.post("/operador/tipo-citas")
+				.content(objectMapper.writeValueAsString(comandoTipoCita))
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isCreated());
+		
 		mvc.perform(MockMvcRequestBuilders
 				.get("/consulta/tipo-citas/{id}", 1L)
 				.accept(MediaType.APPLICATION_JSON))
