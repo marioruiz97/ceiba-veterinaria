@@ -3,6 +3,7 @@ package com.adn.veterinaria.core.infraestructura.controlador.consulta;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ class ControladorConsultaTipoCitaTest {
 	private ObjectMapper objectMapper;
 
 	@Test
+	@BeforeEach
 	void ConsultaRegistrosTest() throws Exception {
 
 		ComandoTipoCita comandoTipoCita = new TipoCitaTestDataBuilder()
