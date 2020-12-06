@@ -1,5 +1,6 @@
 package com.adn.veterinaria.core.infraestructura.controlador;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
@@ -72,7 +73,7 @@ class ControladorRegistroPersonaTest {
 	@Test
 	void modificarResponsable() throws Exception {
 
-		ComandoPersona comandoVeterinario = new PersonaTestDataBuilder()
+		ComandoPersona comandoResponsable = new PersonaTestDataBuilder()
 				.conIdentificacion("43032118")
 				.conTelefonoContacto("3007855772")
 				.conApellido2("Giraldo")
@@ -80,9 +81,56 @@ class ControladorRegistroPersonaTest {
 
 		mvc.perform(MockMvcRequestBuilders
 				.patch("/operador/responsables/{id}", 1L)
-				.content(objectMapper.writeValueAsString(comandoVeterinario))
+				.content(objectMapper.writeValueAsString(comandoResponsable))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	void obtenerVeterinarios() throws Exception {
+		mvc.perform(MockMvcRequestBuilders
+				.get("/consulta/veterinarios")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andDo(print())
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	void obtenerVeterinarioPorId() throws Exception {
+		
+		ComandoPersona comandoVeterinario = new PersonaTestDataBuilder()
+				.conIdentificacion("65488799")
+				.buildComando();
+
+		mvc.perform(MockMvcRequestBuilders
+				.post("/operador/veterinarios")
+				.content(objectMapper.writeValueAsString(comandoVeterinario))
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON));
+		
+		mvc.perform(MockMvcRequestBuilders
+				.get("/consulta/veterinarios/{id}", 1L)
+				.contentType(MediaType.APPLICATION_JSON))
+				.andDo(print())
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	void obtenerResponsables() throws Exception {
+		mvc.perform(MockMvcRequestBuilders
+				.get("/consulta/responsables")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andDo(print())
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	void obtenerResponsablePorId() throws Exception {
+		mvc.perform(MockMvcRequestBuilders
+				.get("/consulta/responsables/{id}", 1L)
+				.contentType(MediaType.APPLICATION_JSON))
+				.andDo(print())
 				.andExpect(status().isOk());
 	}
 }

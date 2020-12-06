@@ -48,7 +48,7 @@ public final class ValidadorArgumento {
 	}
 
 	public static void validarFormatoTelefono(String telefono) {
-		if (!telefono.matches("3[0-9]{9}")) {
+		if (!telefono.matches("(3[0-9]{9})|(\\d{7})")) {
 			throw new ExcepcionValorInvalido(FORMATO_TELEFONO_INVALIDO);
 		}
 	}

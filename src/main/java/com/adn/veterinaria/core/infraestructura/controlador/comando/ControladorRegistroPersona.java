@@ -3,6 +3,7 @@ package com.adn.veterinaria.core.infraestructura.controlador.comando;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import com.adn.veterinaria.core.dominio.modelo.Veterinario;
 
 @RestController
 @RequestMapping("/operador/")
+@CrossOrigin("http://localhost:4200")
 public class ControladorRegistroPersona {
 
 	private static final String PATH_VETERINARIO = "veterinarios";
