@@ -37,7 +37,7 @@ class ControladorConsultaTipoCitaTest {
 	void ConsultaRegistrosTest() throws Exception {
 
 		ComandoTipoCita comandoTipoCita = new TipoCitaTestDataBuilder()
-				.conNombre("CITA GENERAL2")
+				.conNombre("CITA GENERAL")
 				.buildComando();
 
 		mvc.perform(MockMvcRequestBuilders
@@ -52,7 +52,7 @@ class ControladorConsultaTipoCitaTest {
 				.accept(MediaType.APPLICATION_JSON))
 				.andDo(print())
 				.andExpect(status().isOk())
-				.andExpect(MockMvcResultMatchers.jsonPath("$.[0].nombre").value("CITA GENERAL2"));
+				.andExpect(MockMvcResultMatchers.jsonPath("$.[0].nombre").value("CITA GENERAL"));
 	}
 
 	@Test
