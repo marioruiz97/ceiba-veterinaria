@@ -58,18 +58,6 @@ class ControladorConsultaTipoCitaTest {
 	@Test
 	void consultarTipoPorId() throws Exception {
 		
-		ComandoTipoCita comandoTipoCita = new TipoCitaTestDataBuilder()
-				.conNombre("CITA EJEMPLO 2")
-				.conDescripcionBreve("otro ejemplo")
-				.buildComando();
-
-		mvc.perform(MockMvcRequestBuilders
-				.post("/operador/tipo-citas")
-				.content(objectMapper.writeValueAsString(comandoTipoCita))
-				.contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isCreated());
-		
 		mvc.perform(MockMvcRequestBuilders
 				.get("/consulta/tipo-citas/{id}", 1L)
 				.accept(MediaType.APPLICATION_JSON))
