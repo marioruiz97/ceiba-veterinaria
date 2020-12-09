@@ -28,7 +28,7 @@ public class ServicioRegistroVeterinario {
 		return repositorioRegistroVeterinario.crearOModificar(veterinario);
 	}
 	
-	public void validarIdentificacionExistente(String identificacion) {
+	private void validarIdentificacionExistente(String identificacion) {
 		if (repositorioRegistroVeterinario.existeIdentificacion(identificacion)) {
 			throw new ExcepcionDuplicidad(IDENTIFICACION_YA_EXISTE);
 		}

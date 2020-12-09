@@ -28,7 +28,7 @@ public class ServicioRegistroResponsableMascota {
 		return repositorioResponsableMascota.crearOModificar(responsable);
 	}
 
-	public void validarIdentificacionExistente(String identificacion) {
+	private void validarIdentificacionExistente(String identificacion) {
 		if (repositorioResponsableMascota.existeIdentificacion(identificacion)) {
 			throw new ExcepcionDuplicidad(IDENTIFICACION_YA_EXISTE);
 		}

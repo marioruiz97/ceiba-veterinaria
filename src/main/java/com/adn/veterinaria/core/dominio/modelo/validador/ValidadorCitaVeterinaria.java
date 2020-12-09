@@ -10,8 +10,8 @@ public final class ValidadorCitaVeterinaria {
 
 	private static final String FECHA_SELECCIONADA_NO_VALIDA = "La fecha ingresada para la cita no está dentro del horario de atención";
 
-	public static final String HORARIO_SEMANA = "semana";
-	public static final String HORARIO_SABADO = "sabado";
+	private static final String HORARIO_SEMANA = "semana";
+	private static final String HORARIO_SABADO = "sabado";
 
 	private static final DayOfWeek SABADO = DayOfWeek.SATURDAY;
 	private static final DayOfWeek LUNES = DayOfWeek.MONDAY;
@@ -56,11 +56,11 @@ public final class ValidadorCitaVeterinaria {
 			throw new ExcepcionAccionNoPermitida(FECHA_SELECCIONADA_NO_VALIDA);
 	}
 
-	public boolean validarDia(DayOfWeek diaCita) {
+	private boolean validarDia(DayOfWeek diaCita) {
 		return diaCita.compareTo(diaInicio) >= 0 && diaCita.compareTo(diaFin) <= 0;
 	}
 
-	public boolean validarHora(LocalTime horaCita) {
+	private boolean validarHora(LocalTime horaCita) {
 		return horaCita.compareTo(horaInicio) >= 0 && horaCita.plusHours(1).compareTo(horaCierre) <= 0;
 	}
 }
