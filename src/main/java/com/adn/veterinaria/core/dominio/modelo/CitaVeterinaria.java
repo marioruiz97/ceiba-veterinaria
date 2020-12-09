@@ -10,6 +10,7 @@ import com.adn.veterinaria.core.dominio.modelo.validador.ValidadorCitaVeterinari
 import com.adn.veterinaria.core.dominio.servicio.ServicioFormeateadorFecha;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public class CitaVeterinaria {
@@ -19,6 +20,8 @@ public class CitaVeterinaria {
 	private Veterinario medicoVeterinario;
 	private Mascota mascota;
 	private TipoCita tipoCita;
+
+	@Setter
 	private Double valorFinal;
 
 	public static CitaVeterinaria crear(Date fechaCita, Veterinario medicoVeterinario, Mascota mascota,
@@ -60,16 +63,7 @@ public class CitaVeterinaria {
 			// incrementar tarifa un 15%
 			tarifaFinal = tarifaFinal * 1.15;
 		}
-		if (seDebeAplicarDescuento()) {
-			// aplicar descuento de 20%
-			tarifaFinal = tarifaFinal * 0.8;
-		}
 		return tarifaFinal;
-	}
-
-	private boolean seDebeAplicarDescuento() {
-		// TODO implementar Regla de negocio
-		return false;
 	}
 
 }

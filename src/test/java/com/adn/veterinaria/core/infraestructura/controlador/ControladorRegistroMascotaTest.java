@@ -1,7 +1,6 @@
 package com.adn.veterinaria.core.infraestructura.controlador;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,7 +29,7 @@ class ControladorRegistroMascotaTest {
 	@Autowired
 	private ObjectMapper objectMapper;
 	
-	@Test
+
 	@BeforeEach
 	void before() throws Exception {
 		long randomId = Math.round((Math.random()*100));
@@ -43,8 +42,7 @@ class ControladorRegistroMascotaTest {
 				.content(objectMapper.writeValueAsString(comandoResponsable))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON));
-		
-		assertTrue(true);
+				
 	}
 
 	@Test

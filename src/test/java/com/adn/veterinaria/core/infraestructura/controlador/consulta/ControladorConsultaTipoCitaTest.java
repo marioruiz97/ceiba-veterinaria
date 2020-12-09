@@ -34,7 +34,7 @@ class ControladorConsultaTipoCitaTest {
 
 	@Test
 	@BeforeEach
-	void ConsultaRegistrosTest() throws Exception {
+	void consultaRegistrosTest() throws Exception {
 
 		ComandoTipoCita comandoTipoCita = new TipoCitaTestDataBuilder()
 				.conNombre("CITA GENERAL")

@@ -1,6 +1,7 @@
 package com.adn.veterinaria.core.infraestructura.persistencia.convertidor;
 
 import com.adn.veterinaria.core.dominio.modelo.CitaVeterinaria;
+import com.adn.veterinaria.core.dominio.modelo.CitaVeterinariaDto;
 import com.adn.veterinaria.core.dominio.modelo.Mascota;
 import com.adn.veterinaria.core.dominio.modelo.TipoCita;
 import com.adn.veterinaria.core.dominio.modelo.Veterinario;
@@ -23,6 +24,19 @@ public final class ConvertidorCitaVeterinaria {
 			TipoCita tipoCita = ConvertidorTipoCita.convertirADominio(entidadCita.getTipoCita());
 			citaVeterinaria = new CitaVeterinaria(entidadCita.getCodigoCita(), entidadCita.getFechaCita(), veterinario,
 					mascota, tipoCita);
+		}
+		return citaVeterinaria;
+	}
+
+	public static CitaVeterinariaDto convertirADTO(EntidadCitaVeterinaria entidadCita) {
+		CitaVeterinariaDto citaVeterinaria = null;
+
+		if (entidadCita != null) {
+			Veterinario veterinario = ConvertidorVeterinario.convertirADominio(entidadCita.getVeterinario());
+			Mascota mascota = ConvertidorMascota.convertirADominio(entidadCita.getMascota());
+			TipoCita tipoCita = ConvertidorTipoCita.convertirADominio(entidadCita.getTipoCita());
+			citaVeterinaria = new CitaVeterinariaDto(entidadCita.getCodigoCita(), entidadCita.getFechaCita(),
+					veterinario, mascota, tipoCita, entidadCita.getValorFinal());
 		}
 		return citaVeterinaria;
 	}

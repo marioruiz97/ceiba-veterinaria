@@ -26,9 +26,12 @@ public class ServicioAsignacionCita {
 	private final RepositorioRegistroMascota repositorioRegistroMascotas;
 
 	@Autowired
-	public ServicioAsignacionCita(RepositorioAsignacionCita repositorioAsignacionCita,
-			RepositorioRegistroTipoCita repositorioTipoCita, RepositorioRegistroVeterinario repositorioVeterinario,
-			RepositorioRegistroMascota repositorioRegistroMascotas) {
+	public ServicioAsignacionCita(
+			RepositorioAsignacionCita repositorioAsignacionCita,
+			RepositorioRegistroTipoCita repositorioTipoCita, 
+			RepositorioRegistroVeterinario repositorioVeterinario,
+			RepositorioRegistroMascota repositorioRegistroMascotas
+		) {
 		this.repositorioAsignacionCita = repositorioAsignacionCita;
 		this.repositorioTipoCita = repositorioTipoCita;
 		this.repositorioVeterinario = repositorioVeterinario;
@@ -47,12 +50,18 @@ public class ServicioAsignacionCita {
 		validarExistencia(tipoCita, "El tipo de cita");
 
 		CitaVeterinaria citaVeterinaria = CitaVeterinaria.crear(fechaCita, veterinario, mascota, tipoCita);
+		aplicarDescuento(citaVeterinaria);
 		return repositorioAsignacionCita.asignar(citaVeterinaria);
 	}
 
 	private static void validarExistencia(Object objeto, String campo) {
 		if (objeto == null)
 			throw new ExcepcionRecursoNoEncontrado(String.format(RECURSO_NO_ENCONTRADO, campo));
+	}
+
+	private void aplicarDescuento(CitaVeterinaria cita) {
+		if (this.repositorioAsignacionCita.aplicarDescuento(cita.getMascota().getIdMascota()))
+			cita.setValorFinal(cita.getValorFinal() * 0.8D);
 	}
 
 }
