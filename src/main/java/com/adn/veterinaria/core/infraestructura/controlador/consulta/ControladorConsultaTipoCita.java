@@ -15,12 +15,12 @@ import com.adn.veterinaria.core.dominio.modelo.TipoCita;
 @RestController
 @RequestMapping("/consulta/tipo-citas")
 @CrossOrigin("http://localhost:4200")
-public class ControladorConsultatipoCita {
+public class ControladorConsultaTipoCita {
 
 	private final ManejadorConsultaTipocita manejadorConsultaTipocita;
 
 	@Autowired
-	public ControladorConsultatipoCita(ManejadorConsultaTipocita manejadorConsultaTipocita) {
+	public ControladorConsultaTipoCita(ManejadorConsultaTipocita manejadorConsultaTipocita) {
 		this.manejadorConsultaTipocita = manejadorConsultaTipocita;
 	}
 

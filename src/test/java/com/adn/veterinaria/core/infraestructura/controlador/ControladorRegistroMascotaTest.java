@@ -67,7 +67,7 @@ class ControladorRegistroMascotaTest {
 				.buildComando();
 
 		mvc.perform(MockMvcRequestBuilders
-				.patch("/operador/mascotas/{id}", 1L)
+				.put("/operador/mascotas/{id}", 1L)
 				.content(objectMapper.writeValueAsString(comandoMascota))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
@@ -95,7 +95,7 @@ class ControladorRegistroMascotaTest {
 				.buildComando();
 
 		mvc.perform(MockMvcRequestBuilders
-				.patch("/operador/mascotas/{id}", 1L)
+				.put("/operador/mascotas/{id}", 1L)
 				.content(objectMapper.writeValueAsString(comandoMascota))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))

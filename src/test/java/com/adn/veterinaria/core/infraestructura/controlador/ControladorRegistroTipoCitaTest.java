@@ -50,7 +50,7 @@ class ControladorRegistroTipoCitaTest {
 				.buildComando();
 
 		mvc.perform(MockMvcRequestBuilders
-				.patch("/operador/tipo-citas/{id}", 1L)
+				.put("/operador/tipo-citas/{id}", 1L)
 				.content(objectMapper.writeValueAsString(comandoTipoCita))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))

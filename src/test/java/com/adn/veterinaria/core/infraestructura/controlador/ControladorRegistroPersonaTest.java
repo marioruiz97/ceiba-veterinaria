@@ -50,7 +50,7 @@ class ControladorRegistroPersonaTest {
 				.buildComando();
 
 		mvc.perform(MockMvcRequestBuilders
-				.patch("/operador/veterinarios/{id}", 1L)
+				.put("/operador/veterinarios/{id}", 1L)
 				.content(objectMapper.writeValueAsString(comandoVeterinario))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
@@ -80,7 +80,7 @@ class ControladorRegistroPersonaTest {
 				.buildComando();
 
 		mvc.perform(MockMvcRequestBuilders
-				.patch("/operador/responsables/{id}", 1L)
+				.put("/operador/responsables/{id}", 1L)
 				.content(objectMapper.writeValueAsString(comandoResponsable))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))

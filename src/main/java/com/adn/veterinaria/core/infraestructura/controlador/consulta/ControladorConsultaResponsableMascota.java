@@ -15,12 +15,12 @@ import com.adn.veterinaria.core.dominio.modelo.ResponsableMascota;
 @RestController
 @RequestMapping("/consulta/responsables")
 @CrossOrigin("http://localhost:4200")
-public class ControladorConsultaResponsablesMascotas {
+public class ControladorConsultaResponsableMascota {
 
 	private final ManejadorConsultaResponsableMascota manejadorConsultaResponsable;
 
 	@Autowired
-	public ControladorConsultaResponsablesMascotas(ManejadorConsultaResponsableMascota manejadorConsultaResponsable) {
+	public ControladorConsultaResponsableMascota(ManejadorConsultaResponsableMascota manejadorConsultaResponsable) {
 		this.manejadorConsultaResponsable = manejadorConsultaResponsable;
 	}
 
