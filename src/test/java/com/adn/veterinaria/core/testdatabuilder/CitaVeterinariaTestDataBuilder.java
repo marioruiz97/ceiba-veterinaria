@@ -10,7 +10,7 @@ import com.adn.veterinaria.core.dominio.modelo.CitaVeterinaria;
 public class CitaVeterinariaTestDataBuilder {
 
 	private static final String FORMATO_FECHA = "yyyy-MM-dd HH:mm";
-	private static final String FECHA_CITA = "2020-12-22 08:00";
+	private static final String FECHA_CITA = "2021-12-22 08:00";
 	private static final Long ID = 1L;
 
 	private Date fechaCita;
@@ -22,7 +22,7 @@ public class CitaVeterinariaTestDataBuilder {
 		try {
 			this.fechaCita = new SimpleDateFormat(FORMATO_FECHA).parse(FECHA_CITA);
 		} catch (ParseException parseException) {
-			System.out.println(parseException);
+			System.out.println(parseException.getStackTrace());
 		}
 		this.idMascota = ID;
 		this.idVeterinario = ID;

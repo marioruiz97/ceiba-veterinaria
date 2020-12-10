@@ -44,10 +44,10 @@ class CitaVeterinariaTest {
 		// Arrange
 		Date fechaConHoraInvalida;
 		try {
-			fechaConHoraInvalida = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse("10-12-2020 05:00");
+			fechaConHoraInvalida = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse("16-01-2021 05:00");
 		} catch (ParseException e) {
 			fechaConHoraInvalida = Date
-					.from(LocalDateTime.of(2020, 12, 15, 5, 0).atZone(ZoneId.systemDefault()).toInstant());
+					.from(LocalDateTime.of(2021, 01, 16, 5, 0).atZone(ZoneId.systemDefault()).toInstant());
 		}
 		CitaVeterinariaTestDataBuilder testDataBuilder = new CitaVeterinariaTestDataBuilder()
 				.conFechaCita(fechaConHoraInvalida);
@@ -61,9 +61,9 @@ class CitaVeterinariaTest {
 		// Arrange
 		Date fechaCita;
 		try {
-			fechaCita = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse("12-12-2020 05:00");
+			fechaCita = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse("16-01-2021 05:00");
 		} catch (ParseException e) {
-			fechaCita = Date.from(LocalDateTime.of(2020, 12, 12, 5, 0).atZone(ZoneId.systemDefault()).toInstant());
+			fechaCita = Date.from(LocalDateTime.of(2021, 01, 16, 5, 0).atZone(ZoneId.systemDefault()).toInstant());
 		}
 		CitaVeterinariaTestDataBuilder testDataBuilder = new CitaVeterinariaTestDataBuilder().conFechaCita(fechaCita);
 
@@ -77,9 +77,9 @@ class CitaVeterinariaTest {
 		Double precioEsperado = new TipoCitaTestDataBuilder().build().getTarifaBasica() * 1.15;
 		Date fechaCita;
 		try {
-			fechaCita = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse("12-12-2020 09:00");
+			fechaCita = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse("16-01-2021 09:00");
 		} catch (ParseException e) {
-			fechaCita = Date.from(LocalDateTime.of(2020, 12, 12, 5, 0).atZone(ZoneId.systemDefault()).toInstant());
+			fechaCita = Date.from(LocalDateTime.of(2021, 01, 16, 9, 0).atZone(ZoneId.systemDefault()).toInstant());
 		}
 		
 		// Act

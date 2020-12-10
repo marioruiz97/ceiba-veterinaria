@@ -2,6 +2,8 @@ package com.adn.veterinaria.core.infraestructura.error;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -21,6 +23,7 @@ import com.adn.veterinaria.core.dominio.excepcion.ExcepcionValorObligatorio;
 @ControllerAdvice
 public class ManejadorError extends ResponseEntityExceptionHandler {
 
+	private final Logger logger = LoggerFactory.getLogger(ManejadorError.class);
 	private static final String OCURRIO_UN_ERROR_FAVOR_CONTACTAR_AL_ADMINISTRADOR = "Ocurrió un error favor contactar al administrador.";
 	private static final ConcurrentHashMap<String, Integer> CODIGOS_ESTADO = new ConcurrentHashMap<>();
 
@@ -50,6 +53,7 @@ public class ManejadorError extends ResponseEntityExceptionHandler {
 		} else {
 			ApiError error = new ApiError(excepcionNombre, OCURRIO_UN_ERROR_FAVOR_CONTACTAR_AL_ADMINISTRADOR);
 			resultado = new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+			logger.error(exception.getMessage(), exception);
 		}
 		return resultado;
 	}
