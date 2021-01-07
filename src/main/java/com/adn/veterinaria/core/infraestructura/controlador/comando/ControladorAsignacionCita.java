@@ -15,7 +15,7 @@ import com.adn.veterinaria.core.dominio.modelo.CitaVeterinaria;
 
 @RestController
 @RequestMapping("/citas/asignar")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "*"})
 public class ControladorAsignacionCita {
 
 	private final ManejadorAsignacionCita manejadorAsignacionCita;

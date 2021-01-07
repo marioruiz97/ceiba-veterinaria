@@ -18,7 +18,7 @@ import com.adn.veterinaria.core.dominio.modelo.TipoCita;
 
 @RestController
 @RequestMapping("/operador/tipo-citas")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "*"})
 public class ControladorRegistroTipoCita {
 
 	private final ManejadorRegistroTipoCita manejadorTipoCita;

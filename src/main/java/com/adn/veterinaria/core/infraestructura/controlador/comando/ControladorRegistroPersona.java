@@ -19,7 +19,7 @@ import com.adn.veterinaria.core.dominio.modelo.Veterinario;
 
 @RestController
 @RequestMapping("/operador/")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "*"})
 public class ControladorRegistroPersona {
 
 	private static final String PATH_VETERINARIO = "veterinarios";

@@ -17,7 +17,7 @@ import com.adn.veterinaria.core.dominio.modelo.Mascota;
 
 @RestController
 @RequestMapping("/operador/mascotas")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "*"})
 public class ControladorRegistroMascota {
 
 	private final ManejadorRegistroMascota manejadorRegistroMascota;
